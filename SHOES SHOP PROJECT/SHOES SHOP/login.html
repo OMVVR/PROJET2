@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="cssLOGIN.css">
+</head>
+<body>
+    <div class="login-card">
+        <div class="card-header">
+          <h1>Login</h1>
+        </div>
+        <div class="card-body">
+          <form action="home.html" onsubmit="return login()">
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="usernamelog" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="passwordlog" placeholder="Enter your username">
+            </div>
+            <span id="omar"> </span><br>
+            <input type="checkbox" onclick="ShowPass()" > <span>Show Password</span>
+        
+            <div class="form-group">
+              <button type="submit" class="login-button">Login</button>
+            </div>
+            <p>YOU DON'T HAVE AN ACCOUNT ? </p> 
+            <button onclick="hide()"><a href="sign.html" >Sign Up </a> </button>
+            </form>
+        </div>
+        
+      </div>
+      <script>
+        var users = [{ username:'omar', password:'omar12345' },
+        { username:'said', password:'said12345' },
+        { username:'hamid', password:'hamid12345' },
+              ]
+    
+
+function ShowPass(){
+
+        var passInput = document.getElementById('passwordlog');
+         if(passInput.type == 'password'){
+            passInput.type = 'text'
+        }else if(passInput.type == 'text'){
+            passInput.type = 'password'
+        }
+}
+
+function login(){
+
+    var userValue = document.getElementById('usernamelog').value;
+    var passValue = document.getElementById('passwordlog').value;
+    
+    if(userValue ==''){
+        document.getElementById('omar').innerHTML = 'Username must be filled out';
+        return false;
+    }
+    else if(passValue == ''){
+        document.getElementById('omar').innerHTML = 'Password name must be filled out';
+        return false;
+    }
+    
+
+    
+for (var i=0 ; i<users.length;i++){
+    if (userValue==users[i].username && passValue ==users[i].password){
+        return true ;
+    }
+}
+document.getElementById('omar').innerHTML = "Password and username do not match";
+                  return false;
+    
+
+        }
+
+        const divcontent=document.querySelector('#logform');
+ const div1content=document.querySelector('#signform');
+let click=true;
+ let hide = function hide(){
+   if(click){
+    divcontent.style.display='none';
+    div1content.style.display='block'
+    click=false;
+   }else{
+    div1content.style.display='none'
+    divcontent.style.display='block';
+    click=true;
+   }
+ 
+    
+ }
+
+      </script>
+    
+</body>
+
+</html>

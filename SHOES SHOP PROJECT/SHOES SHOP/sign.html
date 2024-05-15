@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cssLOGIN.css">
+</head>
+<body>
+    <div >
+        <form action="" onsubmit="return signfb()">
+            <h1>SHOES SHOP</h1><br>
+            <h2>Sign Up</h2><br>  
+            <input type="text" id="usernamelog" placeholder="Create Username" required><br>
+            <input type="password" id="passwordlog" placeholder="Create Password" required><br>
+            <input type="text" id="name" placeholder="Enter Full Name" required><br>
+            <input type="text" id="mail" placeholder="Enter Email" required><br><br>
+            <span id="omar2"> </span><br>
+            <a href="home.html"><input type="submit" value="Register"></a>
+           
+    </div>
+<script>
+     function signfb(){
+
+var userNameValue = document.getElementById('usernamelog').value;
+var passValue = document.getElementById('passwordlog').value;
+
+
+if (passValue.length<8) {
+    document.getElementById('omar2').innerHTML = 'password must contain 8 crct';
+  return false;
+    }else{
+        var user ={};
+        user.username= userNameValue;
+        user.password = passValue;
+        users.push(user);
+        console.log(users)
+        }
+}
+</script>
+</body>
+</html>
